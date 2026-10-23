@@ -1,0 +1,19 @@
+PATRIMONIO-SESI/
+│
+├── app.py
+├── requirements.txt
+├── README.md
+├── .gitignore
+│
+├── templates/
+│   └── index.html
+│
+├── static/
+│   ├── css/
+│   │   └── style.css
+│   │
+│   └── js/
+│       └── app.js
+│
+└── data/
+    └── patrimonios_exemplo.json
