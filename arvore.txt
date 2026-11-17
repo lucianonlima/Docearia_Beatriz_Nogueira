@@ -1,0 +1,13 @@
+DOCERIA-CASA-AMORA/
+│
+├── app.py
+├── requirements.txt
+├── README.md
+├── .gitignore
+│
+├── templates/
+│   └── index.html
+│
+└── data/
+    ├── avaliacoes.json
+    └── pedidos.json
