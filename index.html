@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Doceria Beatriz Nogueira</title>
+  <!-- Conecta o arquivo de estilos -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- CABEÇALHO + MENU -->
+  <header class="header">
+    <a href="#inicio" class="logo">🧁 Doceria <span>Beatriz Nogueira</span></a>
+    <button id="menuBtn" class="menu-btn" aria-label="Abrir menu">☰</button>
+    <nav id="menu" class="menu">
+      <a href="#inicio">Início</a>
+      <a href="#produtos">Produtos</a>
+      <a href="#calculadora">Calculadora</a>
+      <a href="#agendar">Agendar evento</a>
+      <a href="#contato">Contato</a>
+    </nav>
+  </header>
+
+  <main>
+    <!-- APRESENTAÇÃO -->
+    <section id="inicio" class="hero">
+      <div class="hero-text">
+        <h1>Doces que transformam momentos em memórias</h1>
+        <p>Bolos decorados, docinhos finos e kits de presente para aniversários, casamentos e para quem você ama.</p>
+        <a href="#produtos" class="btn">Escolher produtos</a>
+        <a href="#agendar" class="btn btn-outline">Agendar meu evento</a>
+      </div>
+      <div class="hero-art">🎂</div>
+    </section>
+
+    <!-- SEÇÃO 1: PRODUTOS + PEDIDO -->
+    <section id="produtos" class="section">
+      <h2>Nossos produtos</h2>
+      <div class="filters" id="filters">
+        <button class="filter active" data-cat="todos">Todos</button>
+        <button class="filter" data-cat="bolos">Bolos</button>
+        <button class="filter" data-cat="docinhos">Docinhos</button>
+        <button class="filter" data-cat="presentes">Presentes</button>
+      </div>
+      <div class="shop">
+        <div id="productGrid" class="grid"></div>
+
+        <aside class="cart">
+          <h3>🛒 Seu pedido</h3>
+          <div id="cartItems"></div>
+          <p class="total">Total: <strong id="cartTotal">R$ 0,00</strong></p>
+          <label class="check"><input type="checkbox" id="isGift"> É para presentear 🎁</label>
+          <textarea id="giftMsg" rows="2" placeholder="Mensagem do cartão" hidden></textarea>
+          <button id="checkoutBtn" class="btn full">Finalizar pedido</button>
+          <button id="clearBtn" class="btn btn-outline full">Esvaziar</button>
+          <p id="cartMsg" class="msg" role="status"></p>
+        </aside>
+      </div>
+    </section>
+
+    <!-- SEÇÃO 2: CALCULADORA -->
+    <section id="calculadora" class="section alt">
+      <h2>Quanto preciso para a festa?</h2>
+      <div class="card form">
+        <label>Número de convidados
+          <input type="number" id="calcGuests" min="1" max="500" value="30">
+        </label>
+        <label>Tipo de festa
+          <select id="calcType">
+            <option value="1">Aniversário adulto</option>
+            <option value="1.3">Festa infantil</option>
+            <option value="0.8">Casamento</option>
+          </select>
+        </label>
+        <button id="calcBtn" class="btn">Calcular</button>
+        <div id="calcResult" class="result" role="status"></div>
+      </div>
+    </section>
+
+    <!-- SEÇÃO 3: AGENDAMENTO -->
+    <section id="agendar" class="section">
+      <h2>Agende seu evento</h2>
+      <div class="two-col">
+        <form id="eventForm" class="card form" novalidate>
+          <label>Seu nome <input type="text" id="evName"><small class="err"></small></label>
+          <label>Telefone (com DDD) <input type="tel" id="evPhone" placeholder="(21) 99999-9999"><small class="err"></small></label>
+          <label>Data do evento <input type="date" id="evDate"><small class="err"></small></label>
+          <label>Número de convidados <input type="number" id="evGuests" min="1"><small class="err"></small></label>
+          <label>Tema da festa <input type="text" id="evTheme" placeholder="Ex.: Jardim encantado"><small class="err"></small></label>
+          <fieldset>
+            <legend>O que você quer na festa?</legend>
+            <label class="check"><input type="checkbox" name="item" value="Bolo decorado"> Bolo decorado</label>
+            <label class="check"><input type="checkbox" name="item" value="Docinhos"> Docinhos</label>
+            <label class="check"><input type="checkbox" name="item" value="Tortas e salgados doces"> Tortas</label>
+            <label class="check"><input type="checkbox" name="item" value="Lembrancinhas"> Lembrancinhas</label>
+            <small class="err" id="itemsErr"></small>
+          </fieldset>
+          <button type="submit" class="btn">Agendar evento</button>
+          <p id="formMsg" class="msg" role="status"></p>
+        </form>
+
+        <div class="card">
+          <h3>📅 Eventos agendados</h3>
+          <ul id="eventList" class="events"></ul>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- RODAPÉ -->
+  <footer id="contato" class="footer">
+    <p><strong>Doceria Beatriz Nogueira</strong></p>
+    <p>📍 Ourinhos - SP · 📞 (14) 99999-0000 · ✉️ contato@doceriabeatriz.com</p>
+    <p>🕒 Seg a Sáb, 9h às 18h</p>
+    <button id="topBtn" class="btn btn-outline">Voltar ao topo ↑</button>
+    <small>© 2026 Doceria Beatriz Nogueira. Todos os direitos reservados.</small>
+  </footer>
+
+  <!-- CHAT -->
+  <button id="chatToggle" class="chat-toggle" aria-label="Abrir chat">💬</button>
+  <div id="chatBox" class="chat" hidden>
+    <div class="chat-head">Fale com a Bia 🧁 <button id="chatClose" aria-label="Fechar">✕</button></div>
+    <div id="chatMsgs" class="chat-msgs"></div>
+    <div class="quick" id="quick">
+      <button>Preços</button><button>Entrega</button><button>Horário</button><button>Presentes</button>
+    </div>
+    <form id="chatForm" class="chat-form">
+      <input type="text" id="chatInput" placeholder="Digite sua mensagem..." autocomplete="off">
+      <button type="submit">Enviar</button>
+    </form>
+  </div>
+
+  <!-- Conecta o arquivo de JavaScript (no final, depois do HTML) -->
+  <script src="script.js"></script>
+</body>
+</html>
